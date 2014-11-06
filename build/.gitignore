@@ -1,0 +1,6 @@
+*
+
+!.gitignore
+!json-schema-doc.js
+!json-schema-doc.min.js
+

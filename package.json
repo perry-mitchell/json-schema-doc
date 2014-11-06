@@ -1,0 +1,20 @@
+{
+	"name" : "json-schema-doc",
+	"description" : "Generate neat HTML elements for documenting JSON schemas dynamically, with JavaScript.",
+	"version" : "0.1.1",
+	"author" : "Perry Mitchell <perry@perrymitchell.net>",
+	"dependencies" : {
+		"grunt-closurecompiler" : "0.9.9",
+		"grunt-contrib-concat" : "0.5.0",
+		"grunt-text-replace" : "0.3.12",
+		"time-grunt" : "1.0.0"
+	},	
+	"repository" : {
+		"type" : "git",
+		"url" : "git://github.com/perry-mitchell/json-schema-doc.git"
+	},
+	"keywords" : [
+		"json", "schema", "render", "doc"
+	],
+	"license" : "GNU GPL v2"
+}
