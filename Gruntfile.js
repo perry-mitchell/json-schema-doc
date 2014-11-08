@@ -7,7 +7,12 @@ module.exports = function(grunt) {
 
 	// Files in dependency order
 	var jsFiles = [
-		"jsd-init.js"
+		"jsd-init.js",
+		"jsd-config.js",
+		"jsd-tools.js",
+		"render/JSDJSONRenderer.js",
+		"core/JSONSchemaInstance.js",
+		"core/JSONSchema.js"
 	];
 
 	// Add directory for files

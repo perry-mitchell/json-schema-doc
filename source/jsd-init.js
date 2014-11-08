@@ -1,7 +1,9 @@
-(function() {
+(function(global) {
 
-	window.JSONSchemaDoc = {
+	"use strict";
+
+	global.JSONSchemaDoc = {
 		version : "{JSD_VERSION}"
 	};
 
-})();
+})(window);
