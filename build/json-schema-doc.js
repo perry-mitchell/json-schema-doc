@@ -3,7 +3,7 @@
 	"use strict";
 
 	global.JSONSchemaDoc = {
-		version : "0.1.1"
+		version : "{JSD_VERSION}"
 	};
 
 })(window);;

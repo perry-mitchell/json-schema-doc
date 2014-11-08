@@ -42,6 +42,14 @@ module.exports = function(grunt) {
 			}
 		},
 		globalConfig: globalConfig,
+		jasmine: {
+			main: {
+				src: "build/<%= globalConfig.filenameBase %>",
+				options: {
+					specs: "test/specs/*.js"
+				}
+			}
+		},
 		pkg: grunt.file.readJSON("package.json"),
 		replace: {
 			version: {
@@ -61,6 +69,7 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-closurecompiler');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-text-replace');
 
 	grunt.registerTask("default", "Default task", function() {
@@ -68,5 +77,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask("build", ["concat", "replace:version", "closurecompiler:minify"]);
+
+	grunt.registerTask("test", ["concat", "jasmine"]);
 
 };
