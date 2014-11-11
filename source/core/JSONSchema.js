@@ -4,7 +4,10 @@
 
 	function getRendererProperty(renderer, property, args) {
 		args = args || [];
-		if (renderer.hasOwnProperty(property)) {
+		if (!namespace.Tools.isArray(args)) {
+			args = [args];
+		}
+		if (renderer[property]) {
 			if (typeof renderer[property] === "function") {
 				return renderer[property].apply(renderer, args);
 			} else if (typeof renderer[property] === "object") {
@@ -32,7 +35,6 @@
 	};
 
 	namespace.JSONSchema.prototype.render = function() {
-		console.log(this.item);
 		var output = "",
 			indent = getRendererProperty(this._renderer, "indentation"),
 			title = getRendererProperty(this._renderer, "filterTitle", this.item.title);

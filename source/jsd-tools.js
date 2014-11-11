@@ -4,6 +4,10 @@
 
 	namespace.Tools = {
 
+		argumentsToArray: function(args) {
+			return Array.prototype.slice.call(args, 0);
+		},
+
 		generateIndentation: function(str, amount) {
 			if (amount > 0) {
 				var ind = "";
@@ -15,6 +19,10 @@
 			} else {
 				return "";
 			}
+		},
+
+		isArray: function(item) {
+			return (Object.prototype.toString.call(item) === "[object Array]");
 		}
 
 	};

@@ -3,7 +3,7 @@
 	"use strict";
 
 	global.JSONSchemaDoc = {
-		version : "{JSD_VERSION}"
+		version : "0.1.1"
 	};
 
 })(window);;
@@ -45,6 +45,10 @@
 
 	namespace.Tools = {
 
+		argumentsToArray: function(args) {
+			return Array.prototype.slice.call(args, 0);
+		},
+
 		generateIndentation: function(str, amount) {
 			if (amount > 0) {
 				var ind = "";
@@ -56,6 +60,10 @@
 			} else {
 				return "";
 			}
+		},
+
+		isArray: function(item) {
+			return (Object.prototype.toString.call(item) === "[object Array]");
 		}
 
 	};
@@ -128,7 +136,10 @@
 
 	function getRendererProperty(renderer, property, args) {
 		args = args || [];
-		if (renderer.hasOwnProperty(property)) {
+		if (!namespace.Tools.isArray(args)) {
+			args = [args];
+		}
+		if (renderer[property]) {
 			if (typeof renderer[property] === "function") {
 				return renderer[property].apply(renderer, args);
 			} else if (typeof renderer[property] === "object") {
@@ -156,7 +167,6 @@
 	};
 
 	namespace.JSONSchema.prototype.render = function() {
-		console.log(this.item);
 		var output = "",
 			indent = getRendererProperty(this._renderer, "indentation"),
 			title = getRendererProperty(this._renderer, "filterTitle", this.item.title);
